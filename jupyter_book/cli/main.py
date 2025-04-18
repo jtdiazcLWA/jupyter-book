@@ -595,7 +595,7 @@ def builder_specific_actions(
         else:
             makecmd = os.environ.get("MAKE", "make")
         try:
-            output = subprocess.run([makecmd, "all-pdf"], cwd=output_path)
+            output = subprocess.run([makecmd, "all-pdf"], cwd=output_path, shell=True)
             if output.returncode != 0:
                 _error("Error: Failed to build pdf")
                 return output.returncode
